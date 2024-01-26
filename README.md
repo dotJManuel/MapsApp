@@ -18,3 +18,8 @@ npm run start
 ```
 npm run build
 ```
+
+Temas vistos:
+- Integración de Mapbox
+- ViewChidl - ElementRef
+- Standalone
