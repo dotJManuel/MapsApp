@@ -11,6 +11,10 @@ const routes: Routes = [
         loadComponent: () => import('./alone/pages/alone-page/alone-page.component').then( m => m.AlonePageComponent ),
     },
     {
+        path: 'map-screen',
+        loadChildren: () => import('./map-screen/map-screen.module').then( m => m.MapScreenModule ),
+    },
+    {
         path: '**',
         redirectTo: 'maps',
     }

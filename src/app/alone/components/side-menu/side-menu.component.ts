@@ -21,6 +21,7 @@ export class SideMenuComponent {
         { route: '/maps/zoom-range', name: 'Zoom-Range' },
         { route: '/maps/markers', name: 'Markers' },
         { route: '/maps/properties', name: 'Houses' },
+        { route: '/map-screen', name: 'Map-Screen' },
         // { route: '/alone', name: 'Alone Page' },
     ];
 }
