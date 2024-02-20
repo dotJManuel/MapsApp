@@ -22,7 +22,7 @@ import { SideMenuComponent } from '../alone/components/side-menu/side-menu.compo
     FullScreenPageComponent,
     MarkersPageComponent,
     PropertiesPageComponent,
-    ZoomRangePageComponent
+    ZoomRangePageComponent,
   ],
   imports: [
     CommonModule,
