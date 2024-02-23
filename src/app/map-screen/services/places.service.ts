@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Feature, PlacesResponse } from '../interfaces/places';
+import { PlacesApiClient } from '../api';
 
 @Injectable({
     providedIn: 'root'
@@ -6,12 +8,14 @@ import { Injectable } from '@angular/core';
 export class PlacesService {
 
     public useLocation?: [number, number];
+    public isLoadingPlaces: boolean = false;
+    public places: Feature[] = [];
 
     get isUserLocationReady(): boolean {
         return !!this.useLocation;
     }
 
-    constructor() {
+    constructor( private placesApi: PlacesApiClient ) {
         this.getUserLocation();
     }
 
@@ -29,5 +33,23 @@ export class PlacesService {
                 }
             );
         });
+    }
+
+    getPlacesByQuery( query: string = '' ) {
+
+        if( !this.useLocation ) throw Error('No hay userLocation');
+
+        this.isLoadingPlaces = true;
+
+        this.placesApi.get<PlacesResponse>(`/${ query }.json`, {
+            params: {
+                proximity: this.useLocation.join(',')
+            }
+        })
+            .subscribe( resp => {
+                console.log(resp.features);
+                this.isLoadingPlaces = false;
+                this.places = resp.features;
+            });
     }
 }
