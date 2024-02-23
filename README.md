@@ -1,5 +1,6 @@
 # MapsApp
 No usar directamente en AngularCLI (a menos que estén creadas las variables de entorno), ya que las variables de entorno se crean basados en el .env
+la variables se crean automaticamente usando el script set-envs.js
 
 ## Pasos:
 1. Clonar el .env.template y renombrarlo a .env
